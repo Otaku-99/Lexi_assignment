@@ -1,0 +1,99 @@
+{
+  "summary": {
+    "precision": 0.4,
+    "recall": 0.583,
+    "reasoning_quality": 0.733,
+    "adverse_identification": 0.5
+  },
+  "cases": [
+    {
+      "id": "licence_pay_and_recover",
+      "mode": "deep_research",
+      "support_precision": 0.6,
+      "support_recall": 0.75,
+      "reasoning_quality": 0.9,
+      "adverse_identification": 0.5,
+      "predicted_support_docs": [
+        "doc_032.pdf",
+        "doc_033.pdf",
+        "doc_018.pdf",
+        "doc_029.pdf",
+        "doc_025.pdf"
+      ],
+      "predicted_adverse_docs": [
+        "doc_034.pdf",
+        "doc_028.pdf",
+        "doc_026.pdf",
+        "doc_035.pdf"
+      ],
+      "gold_support_docs": [
+        "doc_032.pdf",
+        "doc_006.pdf",
+        "doc_025.pdf",
+        "doc_029.pdf"
+      ],
+      "gold_adverse_docs": [
+        "doc_031.pdf",
+        "doc_034.pdf",
+        "doc_028.pdf",
+        "doc_033.pdf"
+      ]
+    },
+    {
+      "id": "contributory_negligence_truck",
+      "mode": "deep_research",
+      "support_precision": 0.2,
+      "support_recall": 0.333,
+      "reasoning_quality": 0.8,
+      "adverse_identification": 1.0,
+      "predicted_support_docs": [
+        "doc_032.pdf",
+        "doc_018.pdf",
+        "doc_025.pdf",
+        "doc_031.pdf",
+        "doc_014.pdf"
+      ],
+      "predicted_adverse_docs": [
+        "doc_028.pdf",
+        "doc_026.pdf",
+        "doc_035.pdf",
+        "doc_033.pdf"
+      ],
+      "gold_support_docs": [
+        "doc_018.pdf",
+        "doc_023.pdf",
+        "doc_009.pdf"
+      ],
+      "gold_adverse_docs": [
+        "doc_028.pdf",
+        "doc_026.pdf",
+        "doc_035.pdf"
+      ]
+    },
+    {
+      "id": "commercial_vehicle_liability",
+      "mode": "deep_research",
+      "support_precision": 0.4,
+      "support_recall": 0.667,
+      "reasoning_quality": 0.5,
+      "adverse_identification": 0.0,
+      "predicted_support_docs": [
+        "doc_032.pdf",
+        "doc_018.pdf",
+        "doc_014.pdf",
+        "doc_005.pdf",
+        "doc_027.pdf"
+      ],
+      "predicted_adverse_docs": [],
+      "gold_support_docs": [
+        "doc_027.pdf",
+        "doc_029.pdf",
+        "doc_032.pdf"
+      ],
+      "gold_adverse_docs": [
+        "doc_031.pdf",
+        "doc_034.pdf"
+      ]
+    }
+  ]
+}

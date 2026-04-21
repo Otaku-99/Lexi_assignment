@@ -1,0 +1,482 @@
+{
+  "summary": {
+    "backend": "non_llm",
+    "provider": null,
+    "model": null,
+    "sample_runs": 1,
+    "precision": 0.637,
+    "recall": 0.725,
+    "reasoning_quality": 0.971,
+    "adverse_identification": 0.167,
+    "retrieval_recall_ceiling": 0.806,
+    "precision_stddev": 0.0,
+    "recall_stddev": 0.0,
+    "reasoning_stddev": 0.0,
+    "adverse_stddev": 0.0
+  },
+  "cases": [
+    {
+      "id": "licence_pay_and_recover",
+      "description": "Fatal commercial truck accident where the insurer raises an unlicensed-driver defense.",
+      "mode": "deep_research",
+      "precision": 0.778,
+      "recall": 0.875,
+      "support_precision": 0.4,
+      "support_recall": 0.5,
+      "retrieval_recall_ceiling": 1.0,
+      "reasoning_quality": 0.96,
+      "support_reasoning": 0.88,
+      "adverse_reasoning": 1.0,
+      "adverse_identification": 0.5,
+      "adverse_precision": 0.5,
+      "adverse_f1": 0.5,
+      "predicted_support_docs": [
+        "doc_006.pdf",
+        "doc_027.pdf",
+        "doc_033.pdf",
+        "doc_029.pdf",
+        "doc_018.pdf"
+      ],
+      "predicted_adverse_docs": [
+        "doc_032.pdf",
+        "doc_034.pdf",
+        "doc_025.pdf",
+        "doc_031.pdf"
+      ],
+      "predicted_relevant_docs": [
+        "doc_006.pdf",
+        "doc_027.pdf",
+        "doc_033.pdf",
+        "doc_029.pdf",
+        "doc_018.pdf",
+        "doc_032.pdf",
+        "doc_034.pdf",
+        "doc_025.pdf",
+        "doc_031.pdf"
+      ],
+      "retrieved_docs": [
+        "doc_032.pdf",
+        "doc_029.pdf",
+        "doc_018.pdf",
+        "doc_034.pdf",
+        "doc_027.pdf",
+        "doc_006.pdf",
+        "doc_025.pdf",
+        "doc_031.pdf",
+        "doc_019.pdf",
+        "doc_001.pdf",
+        "doc_014.pdf",
+        "doc_005.pdf",
+        "doc_003.pdf",
+        "doc_035.pdf",
+        "doc_033.pdf",
+        "doc_028.pdf",
+        "doc_026.pdf"
+      ],
+      "gold_support_docs": [
+        "doc_032.pdf",
+        "doc_006.pdf",
+        "doc_025.pdf",
+        "doc_029.pdf"
+      ],
+      "gold_adverse_docs": [
+        "doc_031.pdf",
+        "doc_034.pdf",
+        "doc_028.pdf",
+        "doc_033.pdf"
+      ],
+      "gold_relevant_docs": [
+        "doc_006.pdf",
+        "doc_025.pdf",
+        "doc_028.pdf",
+        "doc_029.pdf",
+        "doc_031.pdf",
+        "doc_032.pdf",
+        "doc_033.pdf",
+        "doc_034.pdf"
+      ],
+      "precision_stddev": 0.0,
+      "recall_stddev": 0.0,
+      "reasoning_stddev": 0.0,
+      "adverse_stddev": 0.0
+    },
+    {
+      "id": "contributory_negligence_truck",
+      "description": "Truck-accident prompt focused on contributory negligence and claimant-versus-insurer alignment.",
+      "mode": "deep_research",
+      "precision": 0.333,
+      "recall": 0.5,
+      "support_precision": 0.4,
+      "support_recall": 0.667,
+      "retrieval_recall_ceiling": 0.75,
+      "reasoning_quality": 0.97,
+      "support_reasoning": 0.96,
+      "adverse_reasoning": 0.95,
+      "adverse_identification": 0.0,
+      "adverse_precision": 0.0,
+      "adverse_f1": 0.0,
+      "predicted_support_docs": [
+        "doc_018.pdf",
+        "doc_009.pdf",
+        "doc_006.pdf",
+        "doc_027.pdf",
+        "doc_015.pdf"
+      ],
+      "predicted_adverse_docs": [
+        "doc_025.pdf",
+        "doc_032.pdf",
+        "doc_029.pdf",
+        "doc_023.pdf"
+      ],
+      "predicted_relevant_docs": [
+        "doc_018.pdf",
+        "doc_009.pdf",
+        "doc_006.pdf",
+        "doc_027.pdf",
+        "doc_015.pdf",
+        "doc_025.pdf",
+        "doc_032.pdf",
+        "doc_029.pdf",
+        "doc_023.pdf"
+      ],
+      "retrieved_docs": [
+        "doc_018.pdf",
+        "doc_009.pdf",
+        "doc_006.pdf",
+        "doc_021.pdf",
+        "doc_034.pdf",
+        "doc_029.pdf",
+        "doc_035.pdf",
+        "doc_005.pdf",
+        "doc_015.pdf",
+        "doc_025.pdf",
+        "doc_032.pdf",
+        "doc_017.pdf",
+        "doc_023.pdf",
+        "doc_004.pdf",
+        "doc_043.pdf",
+        "doc_011.pdf",
+        "doc_022.pdf",
+        "doc_027.pdf",
+        "doc_001.pdf",
+        "doc_014.pdf",
+        "doc_026.pdf"
+      ],
+      "gold_support_docs": [
+        "doc_018.pdf",
+        "doc_023.pdf",
+        "doc_009.pdf"
+      ],
+      "gold_adverse_docs": [
+        "doc_028.pdf",
+        "doc_026.pdf",
+        "doc_035.pdf"
+      ],
+      "gold_relevant_docs": [
+        "doc_009.pdf",
+        "doc_018.pdf",
+        "doc_023.pdf",
+        "doc_026.pdf",
+        "doc_028.pdf",
+        "doc_035.pdf"
+      ],
+      "precision_stddev": 0.0,
+      "recall_stddev": 0.0,
+      "reasoning_stddev": 0.0,
+      "adverse_stddev": 0.0
+    },
+    {
+      "id": "commercial_vehicle_liability",
+      "description": "Broad commercial-vehicle precedent search that should surface both useful and risky transport cases.",
+      "mode": "deep_research",
+      "precision": 0.8,
+      "recall": 0.8,
+      "support_precision": 0.0,
+      "support_recall": 0.0,
+      "retrieval_recall_ceiling": 0.667,
+      "reasoning_quality": 0.983,
+      "support_reasoning": 1.0,
+      "adverse_reasoning": 0.95,
+      "adverse_identification": 0.0,
+      "adverse_precision": 0.0,
+      "adverse_f1": 0.0,
+      "predicted_support_docs": [
+        "doc_034.pdf"
+      ],
+      "predicted_adverse_docs": [
+        "doc_025.pdf",
+        "doc_032.pdf",
+        "doc_029.pdf",
+        "doc_027.pdf"
+      ],
+      "predicted_relevant_docs": [
+        "doc_034.pdf",
+        "doc_025.pdf",
+        "doc_032.pdf",
+        "doc_029.pdf",
+        "doc_027.pdf"
+      ],
+      "retrieved_docs": [
+        "doc_032.pdf",
+        "doc_029.pdf",
+        "doc_027.pdf",
+        "doc_025.pdf",
+        "doc_014.pdf",
+        "doc_006.pdf",
+        "doc_001.pdf",
+        "doc_018.pdf",
+        "doc_034.pdf",
+        "doc_026.pdf"
+      ],
+      "gold_support_docs": [
+        "doc_027.pdf",
+        "doc_029.pdf",
+        "doc_032.pdf"
+      ],
+      "gold_adverse_docs": [
+        "doc_031.pdf",
+        "doc_034.pdf"
+      ],
+      "gold_relevant_docs": [
+        "doc_027.pdf",
+        "doc_029.pdf",
+        "doc_031.pdf",
+        "doc_032.pdf",
+        "doc_034.pdf"
+      ],
+      "precision_stddev": 0.0,
+      "recall_stddev": 0.0,
+      "reasoning_stddev": 0.0,
+      "adverse_stddev": 0.0
+    }
+  ],
+  "samples": [
+    {
+      "sample_index": 1,
+      "cases": [
+        {
+          "id": "licence_pay_and_recover",
+          "description": "Fatal commercial truck accident where the insurer raises an unlicensed-driver defense.",
+          "mode": "deep_research",
+          "precision": 0.778,
+          "recall": 0.875,
+          "support_precision": 0.4,
+          "support_recall": 0.5,
+          "retrieval_recall_ceiling": 1.0,
+          "reasoning_quality": 0.96,
+          "support_reasoning": 0.88,
+          "adverse_reasoning": 1.0,
+          "adverse_identification": 0.5,
+          "adverse_precision": 0.5,
+          "adverse_f1": 0.5,
+          "predicted_support_docs": [
+            "doc_006.pdf",
+            "doc_027.pdf",
+            "doc_033.pdf",
+            "doc_029.pdf",
+            "doc_018.pdf"
+          ],
+          "predicted_adverse_docs": [
+            "doc_032.pdf",
+            "doc_034.pdf",
+            "doc_025.pdf",
+            "doc_031.pdf"
+          ],
+          "predicted_relevant_docs": [
+            "doc_006.pdf",
+            "doc_027.pdf",
+            "doc_033.pdf",
+            "doc_029.pdf",
+            "doc_018.pdf",
+            "doc_032.pdf",
+            "doc_034.pdf",
+            "doc_025.pdf",
+            "doc_031.pdf"
+          ],
+          "retrieved_docs": [
+            "doc_032.pdf",
+            "doc_029.pdf",
+            "doc_018.pdf",
+            "doc_034.pdf",
+            "doc_027.pdf",
+            "doc_006.pdf",
+            "doc_025.pdf",
+            "doc_031.pdf",
+            "doc_019.pdf",
+            "doc_001.pdf",
+            "doc_014.pdf",
+            "doc_005.pdf",
+            "doc_003.pdf",
+            "doc_035.pdf",
+            "doc_033.pdf",
+            "doc_028.pdf",
+            "doc_026.pdf"
+          ],
+          "gold_support_docs": [
+            "doc_032.pdf",
+            "doc_006.pdf",
+            "doc_025.pdf",
+            "doc_029.pdf"
+          ],
+          "gold_adverse_docs": [
+            "doc_031.pdf",
+            "doc_034.pdf",
+            "doc_028.pdf",
+            "doc_033.pdf"
+          ],
+          "gold_relevant_docs": [
+            "doc_006.pdf",
+            "doc_025.pdf",
+            "doc_028.pdf",
+            "doc_029.pdf",
+            "doc_031.pdf",
+            "doc_032.pdf",
+            "doc_033.pdf",
+            "doc_034.pdf"
+          ]
+        },
+        {
+          "id": "contributory_negligence_truck",
+          "description": "Truck-accident prompt focused on contributory negligence and claimant-versus-insurer alignment.",
+          "mode": "deep_research",
+          "precision": 0.333,
+          "recall": 0.5,
+          "support_precision": 0.4,
+          "support_recall": 0.667,
+          "retrieval_recall_ceiling": 0.75,
+          "reasoning_quality": 0.97,
+          "support_reasoning": 0.96,
+          "adverse_reasoning": 0.95,
+          "adverse_identification": 0.0,
+          "adverse_precision": 0.0,
+          "adverse_f1": 0.0,
+          "predicted_support_docs": [
+            "doc_018.pdf",
+            "doc_009.pdf",
+            "doc_006.pdf",
+            "doc_027.pdf",
+            "doc_015.pdf"
+          ],
+          "predicted_adverse_docs": [
+            "doc_025.pdf",
+            "doc_032.pdf",
+            "doc_029.pdf",
+            "doc_023.pdf"
+          ],
+          "predicted_relevant_docs": [
+            "doc_018.pdf",
+            "doc_009.pdf",
+            "doc_006.pdf",
+            "doc_027.pdf",
+            "doc_015.pdf",
+            "doc_025.pdf",
+            "doc_032.pdf",
+            "doc_029.pdf",
+            "doc_023.pdf"
+          ],
+          "retrieved_docs": [
+            "doc_018.pdf",
+            "doc_009.pdf",
+            "doc_006.pdf",
+            "doc_021.pdf",
+            "doc_034.pdf",
+            "doc_029.pdf",
+            "doc_035.pdf",
+            "doc_005.pdf",
+            "doc_015.pdf",
+            "doc_025.pdf",
+            "doc_032.pdf",
+            "doc_017.pdf",
+            "doc_023.pdf",
+            "doc_004.pdf",
+            "doc_043.pdf",
+            "doc_011.pdf",
+            "doc_022.pdf",
+            "doc_027.pdf",
+            "doc_001.pdf",
+            "doc_014.pdf",
+            "doc_026.pdf"
+          ],
+          "gold_support_docs": [
+            "doc_018.pdf",
+            "doc_023.pdf",
+            "doc_009.pdf"
+          ],
+          "gold_adverse_docs": [
+            "doc_028.pdf",
+            "doc_026.pdf",
+            "doc_035.pdf"
+          ],
+          "gold_relevant_docs": [
+            "doc_009.pdf",
+            "doc_018.pdf",
+            "doc_023.pdf",
+            "doc_026.pdf",
+            "doc_028.pdf",
+            "doc_035.pdf"
+          ]
+        },
+        {
+          "id": "commercial_vehicle_liability",
+          "description": "Broad commercial-vehicle precedent search that should surface both useful and risky transport cases.",
+          "mode": "deep_research",
+          "precision": 0.8,
+          "recall": 0.8,
+          "support_precision": 0.0,
+          "support_recall": 0.0,
+          "retrieval_recall_ceiling": 0.667,
+          "reasoning_quality": 0.983,
+          "support_reasoning": 1.0,
+          "adverse_reasoning": 0.95,
+          "adverse_identification": 0.0,
+          "adverse_precision": 0.0,
+          "adverse_f1": 0.0,
+          "predicted_support_docs": [
+            "doc_034.pdf"
+          ],
+          "predicted_adverse_docs": [
+            "doc_025.pdf",
+            "doc_032.pdf",
+            "doc_029.pdf",
+            "doc_027.pdf"
+          ],
+          "predicted_relevant_docs": [
+            "doc_034.pdf",
+            "doc_025.pdf",
+            "doc_032.pdf",
+            "doc_029.pdf",
+            "doc_027.pdf"
+          ],
+          "retrieved_docs": [
+            "doc_032.pdf",
+            "doc_029.pdf",
+            "doc_027.pdf",
+            "doc_025.pdf",
+            "doc_014.pdf",
+            "doc_006.pdf",
+            "doc_001.pdf",
+            "doc_018.pdf",
+            "doc_034.pdf",
+            "doc_026.pdf"
+          ],
+          "gold_support_docs": [
+            "doc_027.pdf",
+            "doc_029.pdf",
+            "doc_032.pdf"
+          ],
+          "gold_adverse_docs": [
+            "doc_031.pdf",
+            "doc_034.pdf"
+          ],
+          "gold_relevant_docs": [
+            "doc_027.pdf",
+            "doc_029.pdf",
+            "doc_031.pdf",
+            "doc_032.pdf",
+            "doc_034.pdf"
+          ]
+        }
+      ]
+    }
+  ]
+}
