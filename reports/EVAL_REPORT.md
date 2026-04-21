@@ -1,7 +1,7 @@
 # Evaluation Results
 
-Backend: `llm`
-Sample runs per prompt: `3`
+Backend: `non_llm`
+Sample runs per prompt: `1`
 
 ## Framework
 
@@ -13,67 +13,58 @@ Sample runs per prompt: `3`
 
 ## Summary
 
-- Precision: `0.652`
-- Recall: `0.505`
-- Reasoning quality: `0.843`
-- Adverse identification: `0.0`
+- Precision: `0.637`
+- Recall: `0.725`
+- Reasoning quality: `0.971`
+- Adverse identification: `0.167`
 - Retrieval recall ceiling: `0.806`
-
-## Stability
-
-- Precision stddev: `0.068`
-- Recall stddev: `0.02`
-- Reasoning stddev: `0.036`
-- Adverse stddev: `0.0`
 
 ## Per-case results
 
 ### licence_pay_and_recover
 - Description: Fatal commercial truck accident where the insurer raises an unlicensed-driver defense.
 - Mode: `deep_research`
-- Precision: `0.822`
-- Recall: `0.583`
-- Support precision: `0.444`
-- Support recall: `0.417`
+- Precision: `0.778`
+- Recall: `0.875`
+- Support precision: `0.4`
+- Support recall: `0.5`
 - Retrieval recall ceiling: `1.0`
-- Reasoning quality: `0.893`
-- Adverse identification: `0.0`
-- Predicted support docs: `doc_032.pdf, doc_027.pdf, doc_034.pdf, doc_006.pdf`
-- Predicted adverse docs: `doc_025.pdf, doc_029.pdf`
+- Reasoning quality: `0.96`
+- Adverse identification: `0.5`
+- Predicted support docs: `doc_006.pdf, doc_027.pdf, doc_033.pdf, doc_029.pdf, doc_018.pdf`
+- Predicted adverse docs: `doc_034.pdf, doc_032.pdf, doc_025.pdf, doc_031.pdf`
 
 ### contributory_negligence_truck
 - Description: Truck-accident prompt focused on contributory negligence and claimant-versus-insurer alignment.
 - Mode: `deep_research`
-- Precision: `0.4`
-- Recall: `0.333`
-- Support precision: `0.0`
-- Support recall: `0.0`
+- Precision: `0.333`
+- Recall: `0.5`
+- Support precision: `0.4`
+- Support recall: `0.667`
 - Retrieval recall ceiling: `0.75`
-- Reasoning quality: `0.77`
+- Reasoning quality: `0.97`
 - Adverse identification: `0.0`
-- Predicted support docs: `doc_029.pdf, doc_006.pdf, doc_032.pdf`
-- Predicted adverse docs: `doc_018.pdf, doc_009.pdf`
+- Predicted support docs: `doc_018.pdf, doc_009.pdf, doc_006.pdf, doc_027.pdf, doc_015.pdf`
+- Predicted adverse docs: `doc_025.pdf, doc_029.pdf, doc_032.pdf, doc_023.pdf`
 
 ### commercial_vehicle_liability
 - Description: Broad commercial-vehicle precedent search that should surface both useful and risky transport cases.
 - Mode: `deep_research`
-- Precision: `0.733`
-- Recall: `0.6`
-- Support precision: `1.0`
-- Support recall: `1.0`
+- Precision: `0.8`
+- Recall: `0.8`
+- Support precision: `0.0`
+- Support recall: `0.0`
 - Retrieval recall ceiling: `0.667`
-- Reasoning quality: `0.867`
+- Reasoning quality: `0.983`
 - Adverse identification: `0.0`
-- Predicted support docs: `doc_032.pdf, doc_029.pdf, doc_027.pdf`
-- Predicted adverse docs: `doc_025.pdf, doc_014.pdf`
+- Predicted support docs: `doc_034.pdf`
+- Predicted adverse docs: `doc_025.pdf, doc_032.pdf, doc_029.pdf, doc_027.pdf`
 
 ## Where the agent fails
 
 - Precision is still low, which means the agent is presenting too many documents as meaningful precedents when they are only loosely related.
-- Final-answer recall trails retrieval recall, so the system is dropping relevant cases during support-versus-adverse classification or final synthesis.
 - Retrieval itself is missing part of the benchmark universe, which caps downstream recall before reasoning even starts.
 - Adverse precedent coverage is weak, which is especially risky because the agent can sound more favorable than the corpus actually is.
-- The llm-backed path shows measurable run-to-run variance, so single-run scores are not enough for regression decisions.
 
 ## What I would fix first
 

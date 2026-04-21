@@ -2,14 +2,18 @@
 
 This repo is now organized into two separate application folders that share the same judgment corpus.
 
+## Hosted App
+
+Streamlit deployment: `https://lexiassignment-lvguxe8gqzy2ruthn8k3gf.streamlit.app/`
+
 ## Structure
 
-- [non_llm](/d:/lexi_assignment/non_llm): deterministic baseline app and core retrieval code
-- [llm_variant](/d:/lexi_assignment/llm_variant): separate Ollama-based LLM variant
-- [lexi_research_take_home_assessment_docs](/d:/lexi_assignment/lexi_research_take_home_assessment_docs): shared PDF corpus
-- [evals](/d:/lexi_assignment/evals): automated evaluation framework
-- [reports](/d:/lexi_assignment/reports): generated evaluation outputs
-- [ADR.md](/d:/lexi_assignment/ADR.md): architecture decision record
+- [non_llm](./non_llm): deterministic baseline app and core retrieval code
+- [llm_variant](./llm_variant): separate Ollama-based LLM variant
+- [lexi_research_take_home_assessment_docs](./lexi_research_take_home_assessment_docs): shared PDF corpus
+- [evals](./evals): automated evaluation framework
+- [reports](./reports): generated evaluation outputs and write-ups
+- [ADR.md](./ADR.md): architecture decision record
 
 ## Run The Non-LLM App
 
@@ -48,3 +52,10 @@ python -m evals.run_evals --backend llm --provider ollama --model qwen2.5:3b-ins
 ```
 
 The framework is common across both approaches. The prompts, gold labels, parser, and metric definitions stay the same; only the execution methodology changes. For LLM-backed runs, use multiple samples to measure variance.
+
+### Evaluation framework (Deliverables)
+
+The evaluation framework lives in `evals/run_evals.py` and evaluates both backends against the same benchmark contract (`evals/benchmark_cases.py`).
+
+- **Outputs**: JSON + a Markdown report are written under `reports/`.
+- **Latest run summaries**: see `reports/EVAL_RUN_SUMMARY.md`.

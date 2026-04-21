@@ -38,8 +38,8 @@
         "doc_018.pdf"
       ],
       "predicted_adverse_docs": [
-        "doc_032.pdf",
         "doc_034.pdf",
+        "doc_032.pdf",
         "doc_025.pdf",
         "doc_031.pdf"
       ],
@@ -49,8 +49,8 @@
         "doc_033.pdf",
         "doc_029.pdf",
         "doc_018.pdf",
-        "doc_032.pdf",
         "doc_034.pdf",
+        "doc_032.pdf",
         "doc_025.pdf",
         "doc_031.pdf"
       ],
@@ -124,8 +124,8 @@
       ],
       "predicted_adverse_docs": [
         "doc_025.pdf",
-        "doc_032.pdf",
         "doc_029.pdf",
+        "doc_032.pdf",
         "doc_023.pdf"
       ],
       "predicted_relevant_docs": [
@@ -135,8 +135,8 @@
         "doc_027.pdf",
         "doc_015.pdf",
         "doc_025.pdf",
-        "doc_032.pdf",
         "doc_029.pdf",
+        "doc_032.pdf",
         "doc_023.pdf"
       ],
       "retrieved_docs": [
@@ -277,8 +277,8 @@
             "doc_018.pdf"
           ],
           "predicted_adverse_docs": [
-            "doc_032.pdf",
             "doc_034.pdf",
+            "doc_032.pdf",
             "doc_025.pdf",
             "doc_031.pdf"
           ],
@@ -288,8 +288,8 @@
             "doc_033.pdf",
             "doc_029.pdf",
             "doc_018.pdf",
-            "doc_032.pdf",
             "doc_034.pdf",
+            "doc_032.pdf",
             "doc_025.pdf",
             "doc_031.pdf"
           ],
@@ -359,8 +359,8 @@
           ],
           "predicted_adverse_docs": [
             "doc_025.pdf",
-            "doc_032.pdf",
             "doc_029.pdf",
+            "doc_032.pdf",
             "doc_023.pdf"
           ],
           "predicted_relevant_docs": [
@@ -370,8 +370,8 @@
             "doc_027.pdf",
             "doc_015.pdf",
             "doc_025.pdf",
-            "doc_032.pdf",
             "doc_029.pdf",
+            "doc_032.pdf",
             "doc_023.pdf"
           ],
           "retrieved_docs": [

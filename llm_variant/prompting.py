@@ -98,28 +98,79 @@ def build_user_prompt(prompt: str, plan: QueryPlan, search_results: list[SearchR
 
 
 def build_candidate_lists(search_results: list[SearchResult]) -> tuple[list[str], list[str]]:
+    """
+    Build a *suggested* shortlist to steer the LLM.
+
+    Key design goal: do not rely only on the query phrasing (which can be neutral);
+    incorporate doc title/snippet/matched_terms so adverse candidates tend to be
+    genuine insurer-defence / policy-breach authorities.
+    """
+
     support_scores: dict[str, float] = defaultdict(float)
     adverse_scores: dict[str, float] = defaultdict(float)
     titles: dict[str, str] = {}
 
-    adverse_markers = {"not liable", "breach", "risk", "risky", "defence", "defense", "help the insurer"}
-    support_markers = {"pay and recover", "claimant", "compensation", "liable", "third party"}
+    adverse_query_markers = {"not liable", "breach", "defence", "defense", "exonerated", "help the insurer", "conscious breach"}
+    support_query_markers = {"pay and recover", "claimant", "compensation", "liable", "third party"}
+
+    adverse_content_markers = {
+        "not liable",
+        "no liability",
+        "exonerated",
+        "exonerate",
+        "breach",
+        "breach of policy",
+        "conscious breach",
+        "wilful",
+        "willful",
+        "violation",
+        "invalid licence",
+        "invalid license",
+        "no valid licence",
+        "no valid license",
+        "defence",
+        "defense",
+        "insurer",
+    }
+    support_content_markers = {
+        "pay and recover",
+        "third party",
+        "third-party",
+        "claimant",
+        "compensation",
+        "liable",
+        "award",
+        "satisfy the award",
+        "section 149",
+        "victim should not",
+    }
 
     for result in search_results:
         lowered_query = result.query.lower()
+        query_support_bias = any(marker in lowered_query for marker in support_query_markers)
+        query_adverse_bias = any(marker in lowered_query for marker in adverse_query_markers)
+
         for rank, doc in enumerate(result.documents[:6]):
             titles[doc.file_name] = doc.title
             weight = max(0.2, 1.0 - rank * 0.12)
-            if any(marker in lowered_query for marker in adverse_markers):
-                adverse_scores[doc.file_name] += weight
-            elif any(marker in lowered_query for marker in support_markers):
-                support_scores[doc.file_name] += weight
-            else:
-                support_scores[doc.file_name] += weight * 0.5
-                adverse_scores[doc.file_name] += weight * 0.2
+
+            haystack = " ".join(
+                [
+                    (doc.title or ""),
+                    (doc.snippet or ""),
+                    " ".join(doc.matched_terms or []),
+                ]
+            ).lower()
+
+            support_hits = sum(marker in haystack for marker in support_content_markers)
+            adverse_hits = sum(marker in haystack for marker in adverse_content_markers)
+
+            # Bias slightly toward the query's intent when present, but mostly trust content.
+            support_scores[doc.file_name] += weight * (0.6 + 0.25 * query_support_bias) + support_hits * 0.35
+            adverse_scores[doc.file_name] += weight * (0.45 + 0.35 * query_adverse_bias) + adverse_hits * 0.45
 
     support = sorted(support_scores.items(), key=lambda item: item[1], reverse=True)[:5]
     adverse = sorted(adverse_scores.items(), key=lambda item: item[1], reverse=True)[:5]
-    support_lines = [f"- `{file_name}` | {titles[file_name]}" for file_name, _ in support]
-    adverse_lines = [f"- `{file_name}` | {titles[file_name]}" for file_name, _ in adverse]
+    support_lines = [f"- `{file_name}` | {titles.get(file_name, '')}".rstrip() for file_name, _ in support]
+    adverse_lines = [f"- `{file_name}` | {titles.get(file_name, '')}".rstrip() for file_name, _ in adverse]
     return support_lines or ["- none"], adverse_lines or ["- none"]
